@@ -1,0 +1,133 @@
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+{
+    // To learn more about global settings, visit https://aka.ms/terminal-global-settings
+    // Schema
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    // Set default profile as PowerShell Core (7)
+    "defaultProfile": "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}",
+    // Some default settings
+    "copyOnSelect": false,
+    "copyFormatting": false,
+    // Profiles - Tabs
+    // To learn more about profiles, visit https://aka.ms/terminal-profile-settings
+    // Each one of them will appear in the 'New Tab' dropdown,
+    //   and can be invoked from the commandline with `wt.exe -p "name"`
+    "profiles": {
+        // Default settings for all profile
+        "defaults": {
+            // Font: Nerd Font Cascadia Code (with powerline glyphs)
+            // this fonts gives glyphs for Python venv
+            "fontFace": "CaskaydiaCove Nerd Font",
+            // One Half Dark colour scheme from Atom editor
+            "colorScheme": "One Half Dark",
+            // Suppress the application title, usually the current dir
+            // Display the name of profile instead
+            "suppressApplicationTitle": true
+        },
+        // List of all profiles used
+        "list": [
+            {
+                // PowerShell Core (auto generated)
+                // Name of profile, display at tab
+                "name": "PowerShell",
+                // Unique id of the profile
+                "guid": "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}",
+                // Generate automatically
+                "source": "Windows.Terminal.PowershellCore",
+                // Tab colour same as background to have seemless look
+                "tabColor": "#282C34",
+                // Actively in use
+                "hidden": false
+            },
+            {
+                // Ubuntu WSL
+                "name": "Ubuntu",
+                "guid": "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}",
+                "source": "Windows.Terminal.Wsl",
+                // Icon downloaded and put into AppData folder
+                "icon": "ms-appdata:///roaming/ubuntu-32.png",
+                // Custom colour scheme, check below
+                "colorScheme": "Ubuntu",
+                // Cursor configurations
+                "cursorColor": "#FFFFFF",
+                "cursorShape": "filledBox",
+                // Start at WSL $HOME
+                "startingDirectory": "//wsl$/Ubuntu/home/hnd",
+                "tabColor": "#2C001E",
+                "hidden": false
+            },
+            {
+                // RaspberryPi SSH
+                "name": "Raspberry Pi",
+                "guid": "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}",
+                // Go to Raspberry Pi IP (my IP is hidden)
+                "commandline": "ssh pi@<Pi's IP here>",
+                // Downloaded icon
+                "icon": "ms-appdata:///roaming/raspberry-pi-32.png",
+                "tabColor": "#282C34",
+                "hidden": false
+            }
+        ]
+    },
+    // Custom colour schemes go here
+    // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
+    "schemes": [
+        {
+            "name": "Ubuntu",
+            "background": "#2C001E",
+            "black": "#2E3436",
+            "blue": "#3465A4",
+            "brightBlack": "#555753",
+            "brightBlue": "#729FCF",
+            "brightCyan": "#34E2E2",
+            "brightGreen": "#8AE234",
+            "brightPurple": "#AD7FA8",
+            "brightRed": "#EF2929",
+            "brightWhite": "#EEEEEE",
+            "brightYellow": "#FCE94F",
+            "cyan": "#06989A",
+            "foreground": "#EEEEEE",
+            "green": "#4E9A06",
+            "purple": "#75507B",
+            "red": "#CC0000",
+            "white": "#D3D7CF",
+            "yellow": "#C4A000"
+        }
+    ],
+    // Add custom actions and keybindings to this array.
+    // To unbind a key combination from your defaults.json, set the command to "unbound".
+    // To learn more about actions and keybindings, visit https://aka.ms/terminal-keybindings
+    "actions": [
+        // Copy and paste are bound to Ctrl+Shift+C and Ctrl+Shift+V in your defaults.json.
+        // These two lines additionally bind them to Ctrl+C and Ctrl+V.
+        // To learn more about selection, visit https://aka.ms/terminal-selection
+        {
+            "command": {
+                "action": "copy",
+                "singleLine": false
+            },
+            "keys": "ctrl+c"
+        },
+        {
+            "command": "paste",
+            "keys": "ctrl+v"
+        },
+        // Press Ctrl+Shift+F to open the search box
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
+        },
+        // Press Alt+Shift+D to open a new pane.
+        // - "split": "auto" makes this pane open in the direction that provides the most surface area.
+        // - "splitMode": "duplicate" makes the new pane use the focused pane's profile.
+        // To learn more about panes, visit https://aka.ms/terminal-panes
+        {
+            "command": {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "alt+shift+d"
+        }
+    ]
+}
